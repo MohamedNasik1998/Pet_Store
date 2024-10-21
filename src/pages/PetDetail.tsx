@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Pet } from "../models/Pet";
-import { Customer } from "../models/Customer";
+// import { Customer } from "../models/Customer";
 import Header from "../components/Header";
 import PetMoreDetails from "../components/PetMoreDetails";
 import { Footer } from "../components/Footer";
@@ -10,7 +10,7 @@ import PetSection from "../components/PetSection";
 const PetDetail = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [customers, setCustomers] = useState<Customer[]>([]);
+  // const [customers, setCustomers] = useState<Customer[]>([]);
   const [pets, setPets] = useState<Pet[]>([]);
 
   const pet: Pet = location.state?.pet;
@@ -19,7 +19,7 @@ const PetDetail = () => {
     if (!pet) {
       navigate("/category");
     }
-    fetchCustomer();
+    // fetchCustomer();
     fetchPets();
   }, [pet, navigate]);
 
@@ -37,17 +37,17 @@ const PetDetail = () => {
     }
   };
 
-  const fetchCustomer = async () => {
-    try {
-      const res = await fetch(
-        "https://monitor-backend-rust.vercel.app/api/customers"
-      );
-      const data = await res.json();
-      setCustomers(data);
-    } catch (error) {
-      console.error("Error fetching customers:", error);
-    }
-  };
+  // const fetchCustomer = async () => {
+  //   try {
+  //     const res = await fetch(
+  //       "https://monitor-backend-rust.vercel.app/api/customers"
+  //     );
+  //     // const data = await res.json();
+  //     // setCustomers(data);
+  //   } catch (error) {
+  //     console.error("Error fetching customers:", error);
+  //   }
+  
 
   return (
     <div className="bg-[#FDFDFD]">
